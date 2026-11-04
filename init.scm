@@ -1,0 +1,2 @@
+(require "wakatime/wakatime.scm")
+

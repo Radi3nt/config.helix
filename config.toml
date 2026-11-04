@@ -1,0 +1,60 @@
+theme = 'onedark_atom'
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[keys.normal]
+C-g = [
+    ":write-all",
+    ":new",
+    ":insert-output lazygit",
+    ":buffer-close!",
+    ":redraw",
+    ":reload-all"
+]
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor]
+auto-completion = true
+auto-format = true
+completion-timeout = 5
+end-of-line-diagnostics = "disable"
+bufferline = 'always'
+color-modes = true
+idle-timeout = 0
+completion-trigger-len = 2
+
+
+[editor.word-completion]
+trigger-length = 2
+
+[editor.indent-guides]
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "hint"
+
+
+
+prefix-len = 1
+max-wrap = 80
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true

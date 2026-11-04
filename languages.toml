@@ -1,0 +1,38 @@
+[language-server.codebook]
+command = "codebook-lsp"
+args = ["serve"]
+
+[[language]]
+name = "markdown"
+language-servers = ["codebook"]
+
+[[grammar]]
+name = "make"
+source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-make", rev = "70613f3d812cbabbd7f38d104d60a409c4008b43" }
+
+[[language]]
+name = "make"
+language-servers = ["make-ls"]
+
+[language-server.make-ls]
+command = "make-ls"
+
+
+[[language]]
+name = "c"
+file-types = ["c", "h"]
+formatter = { command = 'clang-format', args = ['--style=file'] }
+language-servers = ["clangd", "codebook"]
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+
+
+[language-server]
+clangd = { command = "clangd", args = [ "--clang-tidy" ] }
+
+[[language]]
+name = "rust"
+
+language-servers = ["rust-analyzer", "codebook"]
+formatter = { command = 'rustfmt' }
+auto-format = true
