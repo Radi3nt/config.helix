@@ -21,14 +21,15 @@ command = "make-ls"
 [[language]]
 name = "c"
 file-types = ["c", "h"]
-formatter = { command = 'clang-format', args = ['--style=file'] }
+formatter = { command = 'clang-format', args = ["--style=file", "--assume-filename=%{buffer_name}"] }
 language-servers = ["clangd", "codebook"]
 auto-format = true
 indent = { tab-width = 4, unit = "    " }
 
 
-[language-server]
-clangd = { command = "clangd", args = [ "--clang-tidy" ] }
+[language-server.clangd]
+command = 'clangd'
+args = ['--function-arg-placeholders', '--completion-style=detailed', '--clang-tidy', '--log=verbose']
 
 [[language]]
 name = "rust"
